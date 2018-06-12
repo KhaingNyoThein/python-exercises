@@ -210,7 +210,7 @@ class ESCAPEPod(Scene):
 class Finished(Scene):
     def enter(self):
         print("You won! Good Job")
-        retuen 'finshed'
+        return 'finshed'
 
 class Map(object):
     scenes = { 
