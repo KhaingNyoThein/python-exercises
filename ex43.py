@@ -104,9 +104,11 @@ class LaserWeaponArmory(Scene):
              the lock closes forever and you can't get the bomb. The
              code is 3 digits.
              """))
+        
+        code = f"{randint(1,9)} {randint(1,9) {randint(1,9)}"
         guess = input("[keypad]> ")
         guesses = 0
-        code = f"{randint(1,9) } {randint(1,9)} {randint(1,9)}"
+        
 
         while guess != code and guessses < 10:
             print("BZZZZEDDDD!")
