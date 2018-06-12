@@ -143,7 +143,7 @@ class TheBridge(Scene):
 
       action = input("> ")
 
-    if action == "throw the bomb":
+      if action == "throw the bomb":
          print(dedent("""
                 In a panic you throw the bomb at the group of Gothons
                 and make a leap for the door. Right as you drop it a
@@ -152,9 +152,9 @@ class TheBridge(Scene):
                 disarm the bomb. You die knowing they will probably
                 blow up when it goes off.
                 """))
-    return 'death'
+      return 'death'
       
-    elif action == "slowly place the bomb":
+      elif action == "slowly place the bomb":
         print(dedent("""
             You point your blaster at the bomb under your arm and
             the Gothons put their hands up and start to sweat.
@@ -166,10 +166,10 @@ class TheBridge(Scene):
             you run to the escape pod to get off this 
             """))
 
-    return 'escape_pod'
-    else:
+      return 'escape_pod'
+      else:
            print("DOES NOT COMPUTER!")
-    return "the_bridge"
+      return "the_bridge"
 
 class ESCAPEPod(Scene):
     def enter(self):
@@ -178,8 +178,7 @@ class ESCAPEPod(Scene):
             the escape pod before the whole ship explodes. It seems
             like hardly any Gothons are on the ship, so your run is
             clear of interference. You get to the chamber with the
-        
-        escape pods, and now need to pick one to take. Some of
+            escape pods, and now need to pick one to take. Some of
             them could be damaged but you don't have time to look.
             There's 5 pods, which one do you take?
             """))
@@ -195,7 +194,7 @@ class ESCAPEPod(Scene):
                 jam jelly.
                  """))
            return 'death'
-       else:
+        else:
            print(dedent("""
                 You jump into pod {guess} and hit the eject button.
                 The pod easily slides out into space heading to the
@@ -204,7 +203,8 @@ class ESCAPEPod(Scene):
                 bright star, taking out the Gothon ship at the same
                 time. You won!
                 """))
-           return 'finished'
+        return 'finished'
+
 class Finished(Scene):
     def enter(self):
         print("You won! Good Job")
