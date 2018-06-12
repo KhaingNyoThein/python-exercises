@@ -3,17 +3,19 @@ from random import randint
 from textwrap import dedent
 
 class Scene(object):
+    
     def enter(self):
       print("This scene is not yet configured.")
       print("Subclass it and implement enter().")
-    exit(1)
+      exit(1)
 
 class Engine(object):
+    
     def _init_(self, scene_map):
-        self.scene.map = scene_map
+        self.scene_map = scene_map
    
     def play(self):
-        current_scene = self.scene_map.opening_scence()
+        current_scene = self.scene_map.opening_scene()
         last_scene = self.scene_map.next_scene('finished')
         
         while current_scene != last_scene:
@@ -22,7 +24,9 @@ class Engine(object):
 
         #be sure to print out the last scene
         current_scene.enter()
+
 class Death(Scene):
+    
     quips = [
             "You died.You kinda suck at this.",
             "Your Mom would be proud.....if she were amater.",
@@ -88,11 +92,13 @@ class CentralCorridor(Scene):
                    Weapon Armory door.
                    """))
             return 'laser_weapon_armory'
+        
         else:
             print("DOES NOT COMPUTER!")
             return 'central_corridor'
 
 class LaserWeaponArmory(Scene):
+    
     def enter(self):
         print(dedent("""
              You do a dive roll into the Weapon Armory, crouch and scan
@@ -110,7 +116,7 @@ class LaserWeaponArmory(Scene):
         guesses = 0
         
 
-        while guess != code and guessses < 10:
+        while guess != code and guesses < 10:
             print("BZZZZEDDDD!")
             guesses += 1
             guess = input("[keypad]> ")
@@ -133,6 +139,7 @@ class LaserWeaponArmory(Scene):
             return 'death'
 
 class TheBridge(Scene):
+    
     def enter(self):
       print(dedent("""
               You burst onto the Bridge with the netron destruct bomb
@@ -169,11 +176,13 @@ class TheBridge(Scene):
             """))
 
         return 'escape_pod'
+      
       else:
            print("DOES NOT COMPUTER!")
            return "the_bridge"
 
-class ESCAPEPod(Scene):
+class EscapePod(Scene):
+    
     def enter(self):
         print(dedent("""
             You rush through the ship desperately trying to make it to
@@ -196,6 +205,7 @@ class ESCAPEPod(Scene):
                 jam jelly.
                  """))
            return 'death'
+        
         else:
            print(dedent("""
                 You jump into pod {guess} and hit the eject button.
@@ -208,16 +218,18 @@ class ESCAPEPod(Scene):
            return 'finished'
 
 class Finished(Scene):
+    
     def enter(self):
         print("You won! Good Job")
-        return 'finshed'
+        return 'finished'
 
 class Map(object):
     scenes = { 
             'central_corridor': CentralCorridor(),
-            'laser_weapon-armory': LastWEaponArmory(),
+            'laser_weapon_armory': LaserWeaponArmory(),
             'the_bridge': TheBridge(),
-            'escape_pod':Death(),
+            'escape_pod':EscapePod(),
+            'death':Death(),
             'finished':Finished(),
             }
     def _init_(self, start_scene):
@@ -226,9 +238,10 @@ class Map(object):
     def next_scene(self, scene_name):
         val = Map.scenes.get(scene_name)
         return val
+    
     def opening_scene(self):
         return self.next_scene(self.start_scene)
 
-a_map = Map('central_corridor')
+a_map = Map ('central_corridor')
 a_game = Engine(a_map)
 a_game.play()
