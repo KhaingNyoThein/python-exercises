@@ -94,7 +94,7 @@ class CentralCorridor(Scene):
 
 class LaserWeaponArmory(Scene):
     def enter(self):
-        print((dedent("""
+        print(dedent("""
              You do a dive roll into the Weapon Armory, crouch and scan
              the room for more Gothons that might be hiding. It's dead
              quiet, too quiet. You stand up and run to the far side of
@@ -105,7 +105,7 @@ class LaserWeaponArmory(Scene):
              code is 3 digits.
              """))
         
-        code = f"{randint(1,9)} {randint(1,9) {randint(1,9)}"
+        code = f"{randint(1,9)} {randint(1,9)} {randint(1,9)}"
         guess = input("[keypad]> ")
         guesses = 0
         
@@ -121,16 +121,16 @@ class LaserWeaponArmory(Scene):
                 gas out. You grab the neutron bomb and run as fast as
                 you can to
                 """))
-        return "the_bridge'
+          return 'the_bridge'
         
         else:
             print(dedent("""
-               The lock buzzes one last time and then you hear a
-               sickening melting sound as the mechanism is fused
-               together. You decide to sit there, and finally the
-               Gothons blow up the ship from their ship
-               """))
-        return 'death'
+                    The lock buzzes one last time and then you hear a
+                    sickening melting sound as the mechanism is fused
+                    together. You decide to sit there, and finally the
+                    Gothons blow up the ship from their ship
+                    """))
+            return 'death'
 
 class TheBridge(Scene):
     def enter(self):
@@ -154,7 +154,7 @@ class TheBridge(Scene):
                 disarm the bomb. You die knowing they will probably
                 blow up when it goes off.
                 """))
-      return 'death'
+         return 'death'
       
       elif action == "slowly place the bomb":
         print(dedent("""
@@ -168,10 +168,10 @@ class TheBridge(Scene):
             you run to the escape pod to get off this 
             """))
 
-      return 'escape_pod'
+        return 'escape_pod'
       else:
            print("DOES NOT COMPUTER!")
-      return "the_bridge"
+           return "the_bridge"
 
 class ESCAPEPod(Scene):
     def enter(self):
@@ -205,7 +205,7 @@ class ESCAPEPod(Scene):
                 bright star, taking out the Gothon ship at the same
                 time. You won!
                 """))
-        return 'finished'
+           return 'finished'
 
 class Finished(Scene):
     def enter(self):
