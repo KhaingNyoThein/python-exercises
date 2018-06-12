@@ -104,47 +104,46 @@ class LaserWeaponArmory(Scene):
              the lock closes forever and you can't get the bomb. The
              code is 3 digits.
              """))
-         
-        code = f"{ randint(1,9)} { randint(1,9)} { randint91,9)} "
         guess = input("[keypad]> ")
         guesses = 0
+        code = f"{randint(1,9) } {randint(1,9)} {randint(1,9)}"
 
-         while guess != code and guessses < 10:
-           print("BZZZZEDDDD!")
-           guesses += 1
-           guess = input("[keypad]> ")
+        while guess != code and guessses < 10:
+            print("BZZZZEDDDD!")
+            guesses += 1
+            guess = input("[keypad]> ")
 
-         if guess == code
+        if guess == code:
           print(dedent("""
                 The container clicks open and the seal breaks, letting
                 gas out. You grab the neutron bomb and run as fast as
                 you can to
                 """))
-          return "the_bridge'
+        return "the_bridge'
         
-         else:
+        else:
             print(dedent("""
                The lock buzzes one last time and then you hear a
                sickening melting sound as the mechanism is fused
                together. You decide to sit there, and finally the
                Gothons blow up the ship from their ship
                """))
-            return 'death'
+        return 'death'
 
 class TheBridge(Scene):
     def enter(self):
       print(dedent("""
-            You burst onto the Bridge with the netron destruct bomb
-            under your arm and surprise 5 Gothons who are trying to
-            take control of the ship. Each of them has an even uglier
-            clown costume than the last. They haven't pulled their
-            weapons out yet, as they see the active bomb under your
-            arm and don't want to set it off.
-            """))
+              You burst onto the Bridge with the netron destruct bomb
+              under your arm and surprise 5 Gothons who are trying to
+              take control of the ship. Each of them has an even uglier
+              clown costume than the last. They haven't pulled their
+              weapons out yet, as they see the active bomb under your
+              arm and don't want to set it off.
+              """))
 
       action = input("> ")
 
-      if action == "throw the bomb":
+    if action == "throw the bomb":
          print(dedent("""
                 In a panic you throw the bomb at the group of Gothons
                 and make a leap for the door. Right as you drop it a
@@ -153,9 +152,9 @@ class TheBridge(Scene):
                 disarm the bomb. You die knowing they will probably
                 blow up when it goes off.
                 """))
-         return 'death'
+    return 'death'
       
-      elif action == "slowly place the bomb":
+    elif action == "slowly place the bomb":
         print(dedent("""
             You point your blaster at the bomb under your arm and
             the Gothons put their hands up and start to sweat.
@@ -167,10 +166,10 @@ class TheBridge(Scene):
             you run to the escape pod to get off this 
             """))
 
-        return 'escape_pod'
-      else:
+    return 'escape_pod'
+    else:
            print("DOES NOT COMPUTER!")
-           return "the_bridge"
+    return "the_bridge"
 
 class ESCAPEPod(Scene):
     def enter(self):
