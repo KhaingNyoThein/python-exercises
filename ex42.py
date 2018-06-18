@@ -41,26 +41,26 @@ def convert(snippet, phrase):
  for i in range(0, snippet.count("@@@")):
   param_count = random.randint(1,3)
   param_names.append(', ' .join(
-  random.sample(WORDS, param_count)))
+             random.sample(WORDS, param_count)))
 
- for sentence in snippet, phrase:
+  for sentence in snippet, phrase:
    result = sentence[:]
 
  # fake class names
- for word in class_names:
-   result = result.replace("%%%", word, 1)
+  for word in class_names:
+    result = result.replace("%%%", word, 1)
 
   # fake other names
- for word in other_names:
-  result = result.replace("***", word, 1)
+  for word in other_names:
+   result = result.replace("***", word, 1)
 
  # fake parameter lists
- for word in param_names:
-  result = result.replace("@@@", word, 1)
+  for word in param_names:
+   result = result.replace("@@@", word, 1)
   
- results.append(result)
+  results.append(result)
   
- return results
+  return results
 
 
  # keep going until they hit CTRL-D
@@ -73,11 +73,11 @@ try:
          phrase = PHRASES[snippet]
          question, answer = convert(snippet, phrase)
          if PHRASE_FIRST:
-          question, answer = answer, question
+           question, answer = answer, question
 
          print(question)
 
- input("> ")
- print(f"ANSWER: {answer}\n\n")
+         input("> ")
+         print(f"ANSWER: {answer}\n\n")
 except EOFError:
  print("\nBye")
