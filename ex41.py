@@ -15,4 +15,7 @@ class Cat(Animal):
         ##?
         self.name = name
     
-
+class Bird(Animal):
+    def _init_(self, name):
+        ##?
+        self.name = name
