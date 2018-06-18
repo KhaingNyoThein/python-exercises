@@ -80,7 +80,7 @@ class CentralCorridor(Scene):
             return 'death'
 
 
-        elif action == "tell a joke":
+        elif action == "tell a joke!":
             print(dedent("""
                    Lucky for you they made you learn Gothon insults in
                    the academy. You tell the one Gothon joke you know:
